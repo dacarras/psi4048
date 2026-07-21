@@ -1,0 +1,37 @@
+---
+title: "Annex B · R Functions Tutorial"
+---
+
+A quick-reference tutorial for the R functions used across all four lectures.
+
+## Loading packages
+
+```{r}
+#| eval: false
+library(psych)   # fa()
+library(lavaan)  # cfa(), sem()
+```
+
+## Function reference
+
+| Function | Package | What it does |
+|---|---|---|
+| `fa()` | psych | Fits an exploratory factor analysis with a chosen rotation |
+| `cfa()` | lavaan | Fits a confirmatory factor analysis from model syntax |
+| `sem()` | lavaan | Fits a full structural equation model (measurement + structural) |
+| `summary()` | lavaan | Prints fit measures and parameter estimates for a fitted model |
+| `standardizedSolution()` | lavaan | Extracts standardized loadings and paths as a data frame |
+| `modificationIndices()` | lavaan | Flags parameters that would most improve fit if freed |
+
+## Worked snippet
+
+```{r}
+#| eval: false
+fit <- sem(sem_model, data = lvm_data)
+summary(fit, standardized = TRUE, fit.measures = TRUE)
+standardizedSolution(fit)
+```
+
+::: {.callout-tip}
+Run `standardizedSolution()` before reporting any loading — raw lavaan output is unstandardized by default.
+:::

@@ -1,0 +1,64 @@
+---
+toc: false
+---
+
+[Course overview]{.kicker}
+
+# Latent Variable Modelling {.course-title .unnumbered}
+
+::: {.lead}
+A four-part lecture series on latent variable models — from the conceptual
+foundations through exploratory and confirmatory factor analysis to full
+structural equation models. Every model is worked twice: once in **R** and once
+in **Mplus**, with replicable code and annotated output.
+:::
+
+::: {.lecture-list}
+
+:::: {.lecture}
+[01]{.lecture-num}
+
+::: {.lecture-body}
+#### [Introduction to Latent Variables](lectures/01-introduction.qmd)
+Concepts, notation, and the three model families
+:::
+
+[Foundations]{.tag}
+::::
+
+:::: {.lecture}
+[02]{.lecture-num}
+
+::: {.lecture-body}
+#### [Exploratory Factor Analysis](lectures/02-efa.qmd)
+Discovering structure with fa() in R
+:::
+
+[R]{.tag}
+::::
+
+:::: {.lecture}
+[03]{.lecture-num}
+
+::: {.lecture-body}
+#### [Confirmatory Factor Analysis](lectures/03-cfa.qmd)
+Testing a hypothesized structure in Mplus
+:::
+
+[Mplus]{.tag}
+::::
+
+:::: {.lecture}
+[04]{.lecture-num}
+
+::: {.lecture-body}
+#### [Structural Equation Models](lectures/04-sem.qmd)
+Linking latent factors with structural paths
+:::
+
+[R + Mplus]{.tag}
+::::
+
+:::
+
+<a href="lectures/01-introduction.qmd" class="btn btn-primary">Start with Lecture 01 →</a>

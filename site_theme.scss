@@ -1,0 +1,273 @@
+/*-- scss:defaults --*/
+
+// Fonts: IBM Plex Sans (body + headings), IBM Plex Mono (code)
+$web-font-path: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" !default;
+
+// Palette
+$red:        #e8340f;
+$ink:        #1a1a1a;
+$paper:      #fbfaf7;   // main content background
+$panel:      #fbfaf7;   // sidebar / search background
+$rule:       #cfcdc8;   // hairline dividers
+$muted:      #8a8884;
+
+$primary:            $red;
+$body-bg:            #ffffff;   // main container: white
+$body-color:         $ink;
+
+// Wider left sidebar (Quarto default is 250px)
+$grid-sidebar-width: 400px;
+
+// Lighter code blocks
+$code-block-bg:      #f7f7f5;
+$code-block-border-left: false;
+$link-color:         $red;
+$link-decoration:    none;
+
+$font-family-sans-serif: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace:  "IBM Plex Mono", SFMono-Regular, Menlo, monospace;
+$headings-font-family:   "IBM Plex Sans", sans-serif;
+$headings-font-weight:   700;
+$headings-color:         $ink;
+
+// Kill simplex's rounded corners everywhere
+$border-radius:      0;
+$border-radius-sm:   0;
+$border-radius-lg:   0;
+$btn-border-radius:  0;
+
+// Navbar
+$navbar-bg: #ffffff;
+$navbar-fg: $ink;
+$navbar-hl: $red;
+
+/*-- scss:rules --*/
+
+/* ---------- Navbar ---------- */
+.navbar {
+  border-bottom: 1px solid $rule;
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+  box-shadow: none;
+}
+
+.navbar-brand,
+.navbar-title {
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  letter-spacing: .01em;
+  color: $ink;
+}
+
+.navbar .nav-link {
+  color: $red;
+  font-weight: 600;
+}
+
+/* Search box */
+.navbar #quarto-search .aa-DetachedSearchButton,
+.navbar .aa-DetachedSearchButton {
+  background: $panel;
+  border: 1px solid $rule;
+  border-radius: 0;
+  min-width: 220px;
+}
+
+/* ---------- Left sidebar ---------- */
+#quarto-sidebar {
+  background: $panel;
+  border-right: 1px solid $rule;
+  padding-top: 1.5rem;
+}
+
+#quarto-sidebar .sidebar-item {
+  font-size: .95rem;
+}
+
+#quarto-sidebar .sidebar-link {
+  color: $ink;
+}
+
+#quarto-sidebar .sidebar-link:hover,
+#quarto-sidebar .sidebar-link.active {
+  color: $red;
+}
+
+/* Section headers: OVERVIEW / FOUNDATIONS / ... */
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container {
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  color: $muted;
+  margin-top: 1.4rem;
+}
+
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container a {
+  color: $muted;
+}
+
+/* ---------- Right TOC ---------- */
+#quarto-margin-sidebar {
+  border-left: 1px solid $rule;
+  padding-left: 1.25rem;
+}
+
+#toc-title,
+.quarto-margin-sidebar .quarto-listing-category-title {
+  font-family: $font-family-sans-serif;
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  color: $muted;
+}
+
+nav[role="doc-toc"] a {
+  color: #444;
+  border-left-color: transparent;
+}
+
+nav[role="doc-toc"] a.active {
+  color: $red;
+  border-left: 2px solid $red;
+}
+
+/* ---------- Typography ---------- */
+/* Default page/lecture titles: much smaller */
+h1, .quarto-title .title {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+
+/* Landing page title: larger (uses {.course-title} on index.qmd) */
+h1.course-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  line-height: 1.05;
+}
+
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; }
+
+/* Red kicker above the title: [Course overview]{.kicker} */
+.kicker {
+  display: block;
+  color: $red;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  margin-bottom: .5rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 46rem;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid darken($rule, 8%);
+  opacity: 1;
+}
+
+/* ---------- Lecture list ---------- */
+.lecture-list {
+  border-bottom: 1px solid $rule;
+  margin: 2rem 0 2.5rem;
+}
+
+.lecture {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  column-gap: 1rem;
+  align-items: start;
+  border-top: 1px solid $rule;
+  padding: 1.35rem 0 1.6rem;
+}
+
+.lecture > p { margin: 0; }
+
+.lecture-num {
+  color: $red;
+  font-weight: 700;
+  padding-top: .2rem;
+}
+
+.lecture-body h3,
+.lecture-body h4 {
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.lecture-body h3 a,
+.lecture-body h4 a { color: $ink; }
+
+.lecture-body p {
+  color: #555;
+  font-size: .95rem;
+  margin: .35rem 0 0;
+}
+
+.tag {
+  justify-self: end;
+  border: 1px solid $red;
+  color: $red;
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: .35rem .65rem;
+  white-space: nowrap;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary,
+.btn-action-primary {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: .95rem 1.7rem;
+  border-radius: 0;
+  border: none;
+}
+
+.btn-primary:hover { background: darken($red, 8%); }
+
+/* "Show code" button (code-tools): small and subtle */
+.code-tools-button {
+  border: none;
+  background: transparent;
+  color: $muted;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  padding: .15rem .3rem;
+}
+
+.code-tools-button:hover {
+  color: $red;
+  background: transparent;
+}
+
+/* Inline code in red, like the accent usage in the mockup */
+code {
+  font-family: $font-family-monospace;
+  color: $red;
+  background: transparent;
+}
+
+pre, kbd, samp { font-family: $font-family-monospace; }
+
+div.sourceCode, pre.sourceCode {
+  background: $code-block-bg;
+  border: 1px solid #e6e5e2;
+  border-radius: 0;
+}

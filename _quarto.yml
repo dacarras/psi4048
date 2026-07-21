@@ -1,0 +1,48 @@
+project:
+  type: website
+
+website:
+  title: "Latent Variable Modelling"
+  navbar:
+    background: light
+    search: true
+  sidebar:
+    style: docked
+    search: false
+    contents:
+      - section: "Overview"
+        contents:
+          - text: "Course Home"
+            href: index.qmd
+      - section: "Foundations"
+        contents:
+          - text: "01 · Introduction to Latent Variables"
+            href: lectures/01-introduction.qmd
+      - section: "Applied Models"
+        contents:
+          - text: "02 · Exploratory Factor Analysis"
+            href: lectures/02-efa.qmd
+          - text: "03 · Confirmatory Factor Analysis"
+            href: lectures/03-cfa.qmd
+          - text: "04 · Structural Equation Models"
+            href: lectures/04-sem.qmd
+      - section: "Annexes"
+        contents:
+          - text: "Annex A · Formula Reference"
+            href: annexes/a-formulas.qmd
+          - text: "Annex B · R Functions Tutorial"
+            href: annexes/b-r-functions.qmd
+          - text: "Annex C · Annotated Output"
+            href: annexes/c-annotated-output.qmd
+
+format:
+  html:
+#    theme: [cosmo, minimal_theme.scss]
+    theme: [cosmo, minimal_theme.scss]
+    toc: true
+    toc-title: "On this page"
+    html-math-method: mathjax
+    code-tools:
+      source: true
+      toggle: false
+      caption: "Show code"

@@ -1,0 +1,36 @@
+---
+title: "02 · Exploratory Factor Analysis"
+---
+
+## Fitting EFA in R
+
+We fit a 3-factor oblimin-rotated EFA to 12 personality items using `psych::fa()`.
+
+```{r}
+#| eval: false
+# fit oblimin-rotated 3-factor solution
+library(psych)
+fa_fit <- fa(items, nfactors = 3, rotate = "oblimin", fm = "ml")
+print(fa_fit$loadings, cutoff = 0.3)
+```
+
+```
+          ML1    ML2    ML3
+item_01  0.71
+item_02  0.68
+item_05         0.74
+item_06         0.61
+item_09                0.79
+item_10                0.66
+SS loadings    2.31   1.98   1.74
+```
+
+## Scree plot
+
+```{r}
+#| echo: false
+#| eval: false
+# plot(fa_fit$e.values, type = "b")
+```
+
+Figure 2.1 — Eigenvalues by factor; the elbow at factor 3 supports the 3-factor solution.

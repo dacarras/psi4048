@@ -1,0 +1,23 @@
+---
+title: "01 · Introduction to Latent Variables"
+---
+
+## What is a latent variable?
+
+A latent variable is a construct that is not directly observed but is inferred from a set of measured indicators. IQ, socioeconomic status, and depression severity are all latent — we never measure them directly, only their manifestations.
+
+::: {.callout-note}
+Throughout this course, indicators are denoted *y* and latent factors *η* (eta) or *ξ* (xi), following Mplus/LISREL convention.
+:::
+
+## The three model families
+
+This course covers three related model families, in increasing order of assumption strength: exploratory factor analysis (EFA), confirmatory factor analysis (CFA), and full structural equation models (SEM) that relate latent factors to one another.
+
+## Software setup
+
+```{r}
+#| eval: false
+install.packages(c("lavaan", "psych", "semPlot"))
+library(lavaan)
+```

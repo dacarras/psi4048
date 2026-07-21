@@ -1,0 +1,93 @@
+---
+title: "Annex C · Annotated Output"
+---
+
+Reading real model output line by line — one worked example per model family, key numbers called out.
+
+## CFA — standardized output
+
+```{.default}
+
+STDYX Standardization
+ ETA1 BY
+   Y1                 0.712      0.031     22.97      0.000    # <1>
+   Y2                 0.681      0.033     20.64      0.000
+
+Model Fit
+   CFI/TLI            0.974 / 0.963           # <2>
+   RMSEA (90% CI)      0.041 (0.028, 0.053)   # <3>
+
+```
+
+1. Standardized loading, SE, z, p — 0.71 with p < .001 is a strong, significant indicator.
+2. CFI/TLI above 0.95 indicate good incremental fit against the baseline model.
+3. RMSEA below 0.05 with a tight CI indicates close fit.
+
+## IRT · Rasch (1PL)
+
+Discrimination is fixed at 1 for every item — only difficulty (location) varies.
+
+```{.default}
+
+        a      b       g
+item_01 1.000  -0.842  0
+item_02 1.000  0.315   0
+item_03 1.000  1.204   0
+
+M2(df) = 18.4(20), p = .560
+```
+
+1. *a* is fixed to 1 across items — that constraint is what makes it a Rasch model, not a 2PL.
+2. *b* is difficulty on the θ scale; a negative *b* means low-ability respondents still answer correctly.
+3. A non-significant M2 (p > .05) means the model is not rejected.
+
+## IRT · Partial Credit Model
+
+Ordered polytomous items — one threshold per step between categories, discrimination still fixed at 1.
+
+```{.default}
+
+          b1      b2      b3
+item_01  -1.20   -0.05    0.98
+item_02  -0.88    0.12    1.15
+item_03  -0.60    0.71    0.55
+
+```
+
+1. Step thresholds (Andrich thresholds) increase monotonically — steps get harder as expected.
+2. item_03's b2 > b3: a threshold reversal — common with sparse categories, doesn't itself mean disordered categories.
+
+## IRT · Graded Response Model
+
+A 2PL for ordered categories — discrimination now varies by item, thresholds model cumulative logits.
+
+```{.default}
+
+        a       b1      b2      b3
+item_01 1.84    -1.10   -0.02   1.05
+item_02 0.97    -0.75    0.30   1.40
+item_03 2.21    -0.90   -0.10   0.88
+
+```
+
+1. *a* varies by item — item_01 discriminates more sharply between adjacent ability levels than item_02.
+2. b1 < b2 < b3 within every item — GRM thresholds must stay ordered, unlike the PCM's per-category steps.
+
+## Multilevel model
+
+Students nested in schools — a random intercept partitions variance into within- and between-school components.
+
+```{.default}
+
+Random effects:
+ Groups   Name        Variance
+ school   (Intercept) 4.82
+ Residual             15.31
+
+ICC = 0.240
+
+```
+
+1. Between-school variance in the intercept — how much average outcomes differ across schools.
+2. Residual (within-school, between-student) variance.
+3. ICC = 4.82 / (4.82 + 15.31) — 24% of total variance sits between schools, well above the ~5% threshold where ignoring nesting would matter.

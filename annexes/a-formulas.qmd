@@ -1,0 +1,29 @@
+---
+title: "Annex A · Formula Reference"
+---
+
+The core equations behind every model in this course, using the η/ξ notation introduced in Lecture 01.
+
+## Measurement model
+
+Each indicator loads on a single latent factor plus unique error.
+
+$$ y_i = \lambda_i \eta + \varepsilon_i $$
+
+## Structural path
+
+A latent factor predicting another, as fit in Lecture 04.
+
+$$ \eta_2 = \beta \eta_1 + \zeta $$
+
+## Fit indices
+
+χ² is the model chi-square, df its degrees of freedom, N the sample size, relative to the baseline model *b*.
+
+$$ \text{RMSEA} = \sqrt{\max\!\left(\frac{\chi^2 - df}{df\,(N-1)},\ 0\right)} $$
+
+$$ \text{CFI} = 1 - \frac{\max(\chi^2_m - df_m,\ 0)}{\max(\chi^2_b - df_b,\ 0)} $$
+
+::: {.callout-note}
+SRMR is the root mean square of standardized residual covariances — reported directly by lavaan/Mplus, rarely computed by hand.
+:::

@@ -1,0 +1,26 @@
+---
+title: "04 · Structural Equation Models"
+---
+
+## Path diagram
+
+The measurement model from Lecture 03 now feeds a structural path: *eta1* predicts *eta2* directly.
+
+Figure 4.1 — Structural path from η1 to η2 to the distal outcome (β = 0.44).
+
+## Fitting in R (lavaan)
+
+```{r}
+#| eval: false
+sem_model <- '
+  eta1 =~ y1 + y2 + y3 + y4
+  eta2 =~ y5 + y6 + y7 + y8
+  eta2 ~ eta1
+  outcome ~ eta2
+'
+fit <- sem(sem_model, data = lvm_data)
+```
+
+::: {.callout-warning}
+A well-fitting measurement model does not guarantee the structural paths are identified or correctly directed — check theory first.
+:::

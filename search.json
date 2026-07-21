@@ -1,0 +1,306 @@
+[
+  {
+    "objectID": "annexes/b-r-functions.html",
+    "href": "annexes/b-r-functions.html",
+    "title": "Annex B · R Functions Tutorial",
+    "section": "",
+    "text": "A quick-reference tutorial for the R functions used across all four lectures.",
+    "crumbs": [
+      "Annexes",
+      "Annex B · R Functions Tutorial"
+    ]
+  },
+  {
+    "objectID": "annexes/b-r-functions.html#loading-packages",
+    "href": "annexes/b-r-functions.html#loading-packages",
+    "title": "Annex B · R Functions Tutorial",
+    "section": "Loading packages",
+    "text": "Loading packages\n\nlibrary(psych)   # fa()\nlibrary(lavaan)  # cfa(), sem()",
+    "crumbs": [
+      "Annexes",
+      "Annex B · R Functions Tutorial"
+    ]
+  },
+  {
+    "objectID": "annexes/b-r-functions.html#function-reference",
+    "href": "annexes/b-r-functions.html#function-reference",
+    "title": "Annex B · R Functions Tutorial",
+    "section": "Function reference",
+    "text": "Function reference\n\n\n\n\n\n\n\n\nFunction\nPackage\nWhat it does\n\n\n\n\nfa()\npsych\nFits an exploratory factor analysis with a chosen rotation\n\n\ncfa()\nlavaan\nFits a confirmatory factor analysis from model syntax\n\n\nsem()\nlavaan\nFits a full structural equation model (measurement + structural)\n\n\nsummary()\nlavaan\nPrints fit measures and parameter estimates for a fitted model\n\n\nstandardizedSolution()\nlavaan\nExtracts standardized loadings and paths as a data frame\n\n\nmodificationIndices()\nlavaan\nFlags parameters that would most improve fit if freed",
+    "crumbs": [
+      "Annexes",
+      "Annex B · R Functions Tutorial"
+    ]
+  },
+  {
+    "objectID": "annexes/b-r-functions.html#worked-snippet",
+    "href": "annexes/b-r-functions.html#worked-snippet",
+    "title": "Annex B · R Functions Tutorial",
+    "section": "Worked snippet",
+    "text": "Worked snippet\n\nfit &lt;- sem(sem_model, data = lvm_data)\nsummary(fit, standardized = TRUE, fit.measures = TRUE)\nstandardizedSolution(fit)\n\n\n\n\n\n\n\nTip\n\n\n\nRun standardizedSolution() before reporting any loading — raw lavaan output is unstandardized by default.",
+    "crumbs": [
+      "Annexes",
+      "Annex B · R Functions Tutorial"
+    ]
+  },
+  {
+    "objectID": "annexes/a-formulas.html",
+    "href": "annexes/a-formulas.html",
+    "title": "Annex A · Formula Reference",
+    "section": "",
+    "text": "The core equations behind every model in this course, using the η/ξ notation introduced in Lecture 01.",
+    "crumbs": [
+      "Annexes",
+      "Annex A · Formula Reference"
+    ]
+  },
+  {
+    "objectID": "annexes/a-formulas.html#measurement-model",
+    "href": "annexes/a-formulas.html#measurement-model",
+    "title": "Annex A · Formula Reference",
+    "section": "Measurement model",
+    "text": "Measurement model\nEach indicator loads on a single latent factor plus unique error.\n\\[ y_i = \\lambda_i \\eta + \\varepsilon_i \\]",
+    "crumbs": [
+      "Annexes",
+      "Annex A · Formula Reference"
+    ]
+  },
+  {
+    "objectID": "annexes/a-formulas.html#structural-path",
+    "href": "annexes/a-formulas.html#structural-path",
+    "title": "Annex A · Formula Reference",
+    "section": "Structural path",
+    "text": "Structural path\nA latent factor predicting another, as fit in Lecture 04.\n\\[ \\eta_2 = \\beta \\eta_1 + \\zeta \\]",
+    "crumbs": [
+      "Annexes",
+      "Annex A · Formula Reference"
+    ]
+  },
+  {
+    "objectID": "annexes/a-formulas.html#fit-indices",
+    "href": "annexes/a-formulas.html#fit-indices",
+    "title": "Annex A · Formula Reference",
+    "section": "Fit indices",
+    "text": "Fit indices\nχ² is the model chi-square, df its degrees of freedom, N the sample size, relative to the baseline model b.\n\\[ \\text{RMSEA} = \\sqrt{\\max\\!\\left(\\frac{\\chi^2 - df}{df\\,(N-1)},\\ 0\\right)} \\]\n\\[ \\text{CFI} = 1 - \\frac{\\max(\\chi^2_m - df_m,\\ 0)}{\\max(\\chi^2_b - df_b,\\ 0)} \\]\n\n\n\n\n\n\nNote\n\n\n\nSRMR is the root mean square of standardized residual covariances — reported directly by lavaan/Mplus, rarely computed by hand.",
+    "crumbs": [
+      "Annexes",
+      "Annex A · Formula Reference"
+    ]
+  },
+  {
+    "objectID": "lectures/04-sem.html",
+    "href": "lectures/04-sem.html",
+    "title": "04 · Structural Equation Models",
+    "section": "",
+    "text": "The measurement model from Lecture 03 now feeds a structural path: eta1 predicts eta2 directly.\nFigure 4.1 — Structural path from η1 to η2 to the distal outcome (β = 0.44).",
+    "crumbs": [
+      "Applied Models",
+      "04 · Structural Equation Models"
+    ]
+  },
+  {
+    "objectID": "lectures/04-sem.html#path-diagram",
+    "href": "lectures/04-sem.html#path-diagram",
+    "title": "04 · Structural Equation Models",
+    "section": "",
+    "text": "The measurement model from Lecture 03 now feeds a structural path: eta1 predicts eta2 directly.\nFigure 4.1 — Structural path from η1 to η2 to the distal outcome (β = 0.44).",
+    "crumbs": [
+      "Applied Models",
+      "04 · Structural Equation Models"
+    ]
+  },
+  {
+    "objectID": "lectures/04-sem.html#fitting-in-r-lavaan",
+    "href": "lectures/04-sem.html#fitting-in-r-lavaan",
+    "title": "04 · Structural Equation Models",
+    "section": "Fitting in R (lavaan)",
+    "text": "Fitting in R (lavaan)\n\nsem_model &lt;- '\n  eta1 =~ y1 + y2 + y3 + y4\n  eta2 =~ y5 + y6 + y7 + y8\n  eta2 ~ eta1\n  outcome ~ eta2\n'\nfit &lt;- sem(sem_model, data = lvm_data)\n\n\n\n\n\n\n\nWarning\n\n\n\nA well-fitting measurement model does not guarantee the structural paths are identified or correctly directed — check theory first.",
+    "crumbs": [
+      "Applied Models",
+      "04 · Structural Equation Models"
+    ]
+  },
+  {
+    "objectID": "lectures/01-introduction.html",
+    "href": "lectures/01-introduction.html",
+    "title": "01 · Introduction to Latent Variables",
+    "section": "",
+    "text": "A latent variable is a construct that is not directly observed but is inferred from a set of measured indicators. IQ, socioeconomic status, and depression severity are all latent — we never measure them directly, only their manifestations.\n\n\n\n\n\n\nNote\n\n\n\nThroughout this course, indicators are denoted y and latent factors η (eta) or ξ (xi), following Mplus/LISREL convention.",
+    "crumbs": [
+      "Foundations",
+      "01 · Introduction to Latent Variables"
+    ]
+  },
+  {
+    "objectID": "lectures/01-introduction.html#what-is-a-latent-variable",
+    "href": "lectures/01-introduction.html#what-is-a-latent-variable",
+    "title": "01 · Introduction to Latent Variables",
+    "section": "",
+    "text": "A latent variable is a construct that is not directly observed but is inferred from a set of measured indicators. IQ, socioeconomic status, and depression severity are all latent — we never measure them directly, only their manifestations.\n\n\n\n\n\n\nNote\n\n\n\nThroughout this course, indicators are denoted y and latent factors η (eta) or ξ (xi), following Mplus/LISREL convention.",
+    "crumbs": [
+      "Foundations",
+      "01 · Introduction to Latent Variables"
+    ]
+  },
+  {
+    "objectID": "lectures/01-introduction.html#the-three-model-families",
+    "href": "lectures/01-introduction.html#the-three-model-families",
+    "title": "01 · Introduction to Latent Variables",
+    "section": "The three model families",
+    "text": "The three model families\nThis course covers three related model families, in increasing order of assumption strength: exploratory factor analysis (EFA), confirmatory factor analysis (CFA), and full structural equation models (SEM) that relate latent factors to one another.",
+    "crumbs": [
+      "Foundations",
+      "01 · Introduction to Latent Variables"
+    ]
+  },
+  {
+    "objectID": "lectures/01-introduction.html#software-setup",
+    "href": "lectures/01-introduction.html#software-setup",
+    "title": "01 · Introduction to Latent Variables",
+    "section": "Software setup",
+    "text": "Software setup\n\ninstall.packages(c(\"lavaan\", \"psych\", \"semPlot\"))\nlibrary(lavaan)",
+    "crumbs": [
+      "Foundations",
+      "01 · Introduction to Latent Variables"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "Show code\n\n\n\n\nCourse overview\n\nLatent Variable Modelling\n\nA four-part lecture series on latent variable models — from the conceptual foundations through exploratory and confirmatory factor analysis to full structural equation models. Every model is worked twice: once in R and once in Mplus, with replicable code and annotated output.\n\n\n\n01\n\nIntroduction to Latent Variables\nConcepts, notation, and the three model families\n\nFoundations\n\n\n02\n\nExploratory Factor Analysis\nDiscovering structure with fa() in R\n\nR\n\n\n03\n\nConfirmatory Factor Analysis\nTesting a hypothesized structure in Mplus\n\nMplus\n\n\n04\n\nStructural Equation Models\nLinking latent factors with structural paths\n\nR + Mplus\n\n\nStart with Lecture 01 →",
+    "crumbs": [
+      "Overview",
+      "Course Home"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "lectures/03-cfa.html",
+    "href": "lectures/03-cfa.html",
+    "title": "03 · Confirmatory Factor Analysis",
+    "section": "",
+    "text": "We confirm the two-factor structure suggested by the EFA, allowing the two factors to correlate.\nTITLE: Two-factor CFA of personality items;\nDATA: FILE = \"items.dat\";\nVARIABLE: NAMES = y1-y8;\nMODEL:\n  eta1 BY y1-y4;\n  eta2 BY y5-y8;\nOUTPUT: STANDARDIZED MODINDICES;\nCFI/TLI            0.974 / 0.963\nRMSEA (90% CI)      0.041 (0.028, 0.053)\nSRMR                0.032\nCorrelation ETA1 WITH ETA2   0.512\n\n\n\n\n\n\nTip\n\n\n\nCheck modification indices before freeing any cross-loading — a large MI is a symptom, not automatically a justified respecification.",
+    "crumbs": [
+      "Applied Models",
+      "03 · Confirmatory Factor Analysis"
+    ]
+  },
+  {
+    "objectID": "lectures/03-cfa.html#specifying-the-model-in-mplus",
+    "href": "lectures/03-cfa.html#specifying-the-model-in-mplus",
+    "title": "03 · Confirmatory Factor Analysis",
+    "section": "",
+    "text": "We confirm the two-factor structure suggested by the EFA, allowing the two factors to correlate.\nTITLE: Two-factor CFA of personality items;\nDATA: FILE = \"items.dat\";\nVARIABLE: NAMES = y1-y8;\nMODEL:\n  eta1 BY y1-y4;\n  eta2 BY y5-y8;\nOUTPUT: STANDARDIZED MODINDICES;\nCFI/TLI            0.974 / 0.963\nRMSEA (90% CI)      0.041 (0.028, 0.053)\nSRMR                0.032\nCorrelation ETA1 WITH ETA2   0.512\n\n\n\n\n\n\nTip\n\n\n\nCheck modification indices before freeing any cross-loading — a large MI is a symptom, not automatically a justified respecification.",
+    "crumbs": [
+      "Applied Models",
+      "03 · Confirmatory Factor Analysis"
+    ]
+  },
+  {
+    "objectID": "lectures/02-efa.html",
+    "href": "lectures/02-efa.html",
+    "title": "02 · Exploratory Factor Analysis",
+    "section": "",
+    "text": "We fit a 3-factor oblimin-rotated EFA to 12 personality items using psych::fa().\n\n# fit oblimin-rotated 3-factor solution\nlibrary(psych)\nfa_fit &lt;- fa(items, nfactors = 3, rotate = \"oblimin\", fm = \"ml\")\nprint(fa_fit$loadings, cutoff = 0.3)\n\n          ML1    ML2    ML3\nitem_01  0.71\nitem_02  0.68\nitem_05         0.74\nitem_06         0.61\nitem_09                0.79\nitem_10                0.66\nSS loadings    2.31   1.98   1.74",
+    "crumbs": [
+      "Applied Models",
+      "02 · Exploratory Factor Analysis"
+    ]
+  },
+  {
+    "objectID": "lectures/02-efa.html#fitting-efa-in-r",
+    "href": "lectures/02-efa.html#fitting-efa-in-r",
+    "title": "02 · Exploratory Factor Analysis",
+    "section": "",
+    "text": "We fit a 3-factor oblimin-rotated EFA to 12 personality items using psych::fa().\n\n# fit oblimin-rotated 3-factor solution\nlibrary(psych)\nfa_fit &lt;- fa(items, nfactors = 3, rotate = \"oblimin\", fm = \"ml\")\nprint(fa_fit$loadings, cutoff = 0.3)\n\n          ML1    ML2    ML3\nitem_01  0.71\nitem_02  0.68\nitem_05         0.74\nitem_06         0.61\nitem_09                0.79\nitem_10                0.66\nSS loadings    2.31   1.98   1.74",
+    "crumbs": [
+      "Applied Models",
+      "02 · Exploratory Factor Analysis"
+    ]
+  },
+  {
+    "objectID": "lectures/02-efa.html#scree-plot",
+    "href": "lectures/02-efa.html#scree-plot",
+    "title": "02 · Exploratory Factor Analysis",
+    "section": "Scree plot",
+    "text": "Scree plot\nFigure 2.1 — Eigenvalues by factor; the elbow at factor 3 supports the 3-factor solution.",
+    "crumbs": [
+      "Applied Models",
+      "02 · Exploratory Factor Analysis"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html",
+    "href": "annexes/c-annotated-output.html",
+    "title": "Annex C · Annotated Output",
+    "section": "",
+    "text": "Reading real model output line by line — one worked example per model family, key numbers called out.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html#cfa-standardized-output",
+    "href": "annexes/c-annotated-output.html#cfa-standardized-output",
+    "title": "Annex C · Annotated Output",
+    "section": "CFA — standardized output",
+    "text": "CFA — standardized output\n\nSTDYX Standardization\n ETA1 BY\n1   Y1                 0.712      0.031     22.97      0.000\n   Y2                 0.681      0.033     20.64      0.000\n\nModel Fit\n2   CFI/TLI            0.974 / 0.963\n3   RMSEA (90% CI)      0.041 (0.028, 0.053)\n\n1\n\nStandardized loading, SE, z, p — 0.71 with p &lt; .001 is a strong, significant indicator.\n\n2\n\nCFI/TLI above 0.95 indicate good incremental fit against the baseline model.\n\n3\n\nRMSEA below 0.05 with a tight CI indicates close fit.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html#irt-rasch-1pl",
+    "href": "annexes/c-annotated-output.html#irt-rasch-1pl",
+    "title": "Annex C · Annotated Output",
+    "section": "IRT · Rasch (1PL)",
+    "text": "IRT · Rasch (1PL)\nDiscrimination is fixed at 1 for every item — only difficulty (location) varies.\n\n        a      b       g\nitem_01 1.000  -0.842  0\nitem_02 1.000  0.315   0\nitem_03 1.000  1.204   0\n\nM2(df) = 18.4(20), p = .560\n\na is fixed to 1 across items — that constraint is what makes it a Rasch model, not a 2PL.\nb is difficulty on the θ scale; a negative b means low-ability respondents still answer correctly.\nA non-significant M2 (p &gt; .05) means the model is not rejected.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html#irt-partial-credit-model",
+    "href": "annexes/c-annotated-output.html#irt-partial-credit-model",
+    "title": "Annex C · Annotated Output",
+    "section": "IRT · Partial Credit Model",
+    "text": "IRT · Partial Credit Model\nOrdered polytomous items — one threshold per step between categories, discrimination still fixed at 1.\n\n          b1      b2      b3\nitem_01  -1.20   -0.05    0.98\nitem_02  -0.88    0.12    1.15\nitem_03  -0.60    0.71    0.55\n\nStep thresholds (Andrich thresholds) increase monotonically — steps get harder as expected.\nitem_03’s b2 &gt; b3: a threshold reversal — common with sparse categories, doesn’t itself mean disordered categories.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html#irt-graded-response-model",
+    "href": "annexes/c-annotated-output.html#irt-graded-response-model",
+    "title": "Annex C · Annotated Output",
+    "section": "IRT · Graded Response Model",
+    "text": "IRT · Graded Response Model\nA 2PL for ordered categories — discrimination now varies by item, thresholds model cumulative logits.\n\n        a       b1      b2      b3\nitem_01 1.84    -1.10   -0.02   1.05\nitem_02 0.97    -0.75    0.30   1.40\nitem_03 2.21    -0.90   -0.10   0.88\n\na varies by item — item_01 discriminates more sharply between adjacent ability levels than item_02.\nb1 &lt; b2 &lt; b3 within every item — GRM thresholds must stay ordered, unlike the PCM’s per-category steps.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  },
+  {
+    "objectID": "annexes/c-annotated-output.html#multilevel-model",
+    "href": "annexes/c-annotated-output.html#multilevel-model",
+    "title": "Annex C · Annotated Output",
+    "section": "Multilevel model",
+    "text": "Multilevel model\nStudents nested in schools — a random intercept partitions variance into within- and between-school components.\n\nRandom effects:\n Groups   Name        Variance\n school   (Intercept) 4.82\n Residual             15.31\n\nICC = 0.240\n\nBetween-school variance in the intercept — how much average outcomes differ across schools.\nResidual (within-school, between-student) variance.\nICC = 4.82 / (4.82 + 15.31) — 24% of total variance sits between schools, well above the ~5% threshold where ignoring nesting would matter.",
+    "crumbs": [
+      "Annexes",
+      "Annex C · Annotated Output"
+    ]
+  }
+]

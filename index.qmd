@@ -2,6 +2,8 @@
 toc: false
 ---
 
+[comment]: # remember to run `quarto publish gh-pages` to published the rendered web.
+
 [Course overview]{.kicker}
 
 # Latent Variable Modelling {.course-title .unnumbered}

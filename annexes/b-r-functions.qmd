@@ -2,7 +2,7 @@
 title: "Annex B · R Functions Tutorial"
 ---
 
-A quick-reference tutorial for the R functions used across all four lectures.
+[under construction] A quick-reference tutorial for the R functions used across all four lectures.
 
 ## Loading packages
 

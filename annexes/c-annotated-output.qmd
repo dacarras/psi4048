@@ -2,7 +2,7 @@
 title: "Annex C · Annotated Output"
 ---
 
-Reading real model output line by line — one worked example per model family, key numbers called out.
+[under construction] Reading real model output line by line — one worked example per model family, key numbers called out.
 
 ## CFA — standardized output
 

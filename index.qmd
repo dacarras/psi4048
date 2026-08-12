@@ -7,7 +7,8 @@ toc: false
 # Latent Variable Modelling {.course-title .unnumbered}
 
 ::: {.lead}
-A four-part lecture series on latent variable models — from the conceptual
+
+[under construction] A four-part lecture series on latent variable models — from the conceptual
 foundations through exploratory and confirmatory factor analysis to full
 structural equation models. Every model is worked twice: once in **R** and once
 in **Mplus**, with replicable code and annotated output.

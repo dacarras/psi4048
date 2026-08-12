@@ -1,0 +1,10 @@
+---
+title: "Annex D · Books"
+---
+
+## On Experimental design
+
+https://experimentology.io
+
+>Frank, M. C., Braginsky, M., Cachia, J., Coles, N. A., Hardwicke, T. E., Hawkins, R. D., Mathur, M. B., & Williams, R. 2025. Experimentology: An Open Science Approach to Experimental Psychology Methods. Stanford University. https://doi.org/10.25936/3JP6-5M50. (Also published by MIT Press, ISBN 978-0-262-55256-1)
+

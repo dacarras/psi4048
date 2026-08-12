@@ -2,7 +2,7 @@
 title: "Annex A · Formula Reference"
 ---
 
-The core equations behind every model in this course, using the η/ξ notation introduced in Lecture 01.
+[under construction] The core equations behind every model in this course, using the η/ξ notation introduced in Lecture 01.
 
 ## Measurement model
 

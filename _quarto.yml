@@ -34,7 +34,8 @@ website:
             href: annexes/b-r-functions.qmd
           - text: "Annex C · Annotated Output"
             href: annexes/c-annotated-output.qmd
-
+          - text: "Annex D · Books"
+            href: annexes/d-books.qmd
 format:
   html:
 #    theme: [cosmo, minimal_theme.scss]

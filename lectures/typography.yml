@@ -1,0 +1,18 @@
+typography:
+  fonts:
+    - family: Inter
+      source: google
+    - family: Roboto
+      source: google
+  base: Inter
+  headings:
+    family: Roboto
+    weight: 700
+    color: '#666666' #"#666666" # Grey
+  
+  monospace: Hack
+  monospace-inline:
+    color: "#222222"
+    background-color: "#F1F3F5"
+  monospace-block: 
+    background-color: "#F1F3F5"

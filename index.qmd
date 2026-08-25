@@ -10,10 +10,8 @@ toc: false
 
 ::: {.lead}
 
-[under construction] A four-part lecture series on latent variable models — from the conceptual
-foundations through exploratory and confirmatory factor analysis to full
-structural equation models. Every model is worked twice: once in **R** and once
-in **Mplus**, with replicable code and annotated output.
+Sito complentario al curso **psi4048** _Modelos de variables latentes en psicometría_. En este sitio se comparten códigos, guías, y ejemplos que complementan al curso.
+
 :::
 
 ::: {.lecture-list}
@@ -44,8 +42,8 @@ Discovering structure with fa() in R
 [03]{.lecture-num}
 
 ::: {.lecture-body}
-#### [Confirmatory Factor Analysis](lectures/03-cfa.qmd)
-Testing a hypothesized structure in Mplus
+#### [Rasch](lectures/03_rasch.qmd)
+Modelo Rasch
 :::
 
 [Mplus]{.tag}

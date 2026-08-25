@@ -22,8 +22,8 @@ website:
         contents:
           - text: "02 · Exploratory Factor Analysis"
             href: lectures/02-efa.qmd
-          - text: "03 · Confirmatory Factor Analysis"
-            href: lectures/03-cfa.qmd
+          - text: "03 · Rasch"
+            href: lectures/03_rasch.qmd
           - text: "04 · Structural Equation Models"
             href: lectures/04-sem.qmd
       - section: "Annexes"
